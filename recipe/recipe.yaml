@@ -35,14 +35,15 @@ tests:
   - python:
       imports:
         - lucid3
-      python_version: ${{ python_min }}.*
-  - requirements:
-      run:
-        - pip
-        - python ${{ python_min }}.*
-    script:
-      - pip check
+      pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - 3.*
+  - script:
       - lucid3 --help
+    requirements:
+      run:
+        - python ${{ python_min }}.*
 
 about:
   summary: Loop and uCrystals identification version 3
